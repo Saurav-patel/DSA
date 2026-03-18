@@ -1,21 +1,34 @@
+# =========================
+# 🧠 1. Tuple (Pair) & Unpacking
+# =========================
 p = (1,2)
 a,b = p
 print(a)
 print(b)
 
+
+# =========================
+# 🧠 2. Nested Tuples (Tuple of Pairs)
+# =========================
 pair = ((1,2) , (3,4) , (5,6))
 #for i in pair:
     #print(i[0],i[1])
 
 
-
+# =========================
+# 🧠 3. List Basics (Vector Equivalent)
+# =========================
 arr = [5, 10, 15, 20, 25]
 
 #print(arr[0])  # Output: 5
 
 arr[2] = 30
-#print(arr)  
+#print(arr)
 
+
+# =========================
+# 🧠 4. List of Tuples (Array of Pairs)
+# =========================
 arr1 = [(1, 2), (3, 4), (5, 6)]
 
 #print(arr1[1][0])
@@ -26,19 +39,28 @@ arr1 = [(1, 2), (3, 4), (5, 6)]
 #for i in arr1:
     #print("i =", i[0] , "j=",i[1])
 
+
+# =========================
+# 🧠 5. List Operations 
+# =========================
 print(arr1.pop())
 print(arr1)
-arr1.append( (7, 8))  #append adds the element at the end of the list
-#print(arr1)
 
-arr1.insert(1 , (9,10)) #insert adds the element at the specified index and shifts the rest of the elements to the right
-arr1.remove((3,4)) #remove removes the first occurrence of the specified element from the list
-arr1.pop(2) #pop removes the element at the specified index and returns it. If no index is specified, it removes and returns the last element of the list
+arr1.append( (7, 8))  # append adds the element at the end of the list
+
+arr1.insert(1 , (9,10)) # insert adds element at index
+arr1.remove((3,4)) # remove deletes first occurrence
+arr1.pop(2) # pop removes element at index
+
 
 #print(arr1)
 
 #print(arr1.sort())
 
+
+# =========================
+# 🧠 6. Sorting & Length
+# =========================
 arr2 = [3, 1, 4, 1, 5, 9]
 arr2.sort()
 # print(arr2)
@@ -46,53 +68,67 @@ arr2.sort()
 # print(arr1)
 # print(len(arr1))
 
+
+# =========================
+# 🧠 7. Dynamic List Creation
+# =========================
 empty_arr = []
 empty_arr.append(1)
 empty_arr.append(2)
 empty_arr.insert(1,(5,6))
 #print(empty_arr)
 
-rows = int(input("Enter the rows of the array: "))
-columns = int(input("Enter the columns of the array: "))
+
+# =========================
+# 🧠 8. 2D Array (Matrix Creation & Input)
+# =========================
+# rows = int(input("Enter the rows of the array: "))
+# columns = int(input("Enter the columns of the array: "))
 # dynamic_arr = [[0 for j in range(columns)] for i in range(rows)]
 # for i in range(rows):
 #     for j in range(columns):
 #         dynamic_arr[i][j] = int(input(f"Enter element at position ({i}, {j}): "))
 
-dynamic_arr1 = [[0] * columns for _ in range(rows)]
-print(dynamic_arr1)
-
-for i in range(rows):
-    for j in range(columns):
-        dynamic_arr1[i][j] = int(input(f"Enter element at position ({i}, {j}): "))
-
-
-for i in range(rows):
-    for j in range(columns):
-        print(dynamic_arr1[i][j], end=" ")
-    print()
-#print("The 2D array is:")
-# for i ,j in dynamic_arr:
-#     print(i , j)
-# for i , j in dynamic_arr:
-#     print(i , j)
+# dynamic_arr1 = [[0] * columns for _ in range(rows)]
+# print(dynamic_arr1)
 
 # for i in range(rows):
 #     for j in range(columns):
-#         print(dynamic_arr[i][j], end=" ")
+#         dynamic_arr1[i][j] = int(input(f"Enter element at position ({i}, {j}): "))
+
+
+# =========================
+# 🧠 9. Matrix Traversal & Printing
+# =========================
+# for i in range(rows):
+#     for j in range(columns):
+#         print(dynamic_arr1[i][j], end=" ")
 #     print()
 
-# for i in dynamic_arr:
-#     print(i)
 
-
+# =========================
+# 🧠 10. Reference vs Copy (VERY IMPORTANT)
+# =========================
 arr3 = [1, 2, 3, 4, 5]
+
 arr4 = arr3
 arr4.append(6)
-# print(arr3)  # Output: [1, 2, 3, 4 , 5, 6]
-# print(arr4)  # Output: [1, 2, 3, 4 , 5, 6]
+# print(arr3)
+# print(arr4)
 
 arr5 = arr3.copy()
 arr5.append(7)
-# print(arr3)  # Output: [1, 2, 3, 4 , 5, 6]
-# print(arr5)  # Output: [1, 2, 3, 4 , 5, 6, 7]
+# print(arr3)
+# print(arr5)
+
+
+# =========================
+# 🧠 11. Matrix Traversal (Row-wise + Element-wise)
+# =========================
+arr6 = [[1,2,3], [4,5,6], [7,8,9]]
+
+for i in arr6:
+    print("i =", i)
+    for j in i:
+        print(" j =", j , end=" ")
+    print()
