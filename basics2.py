@@ -1,5 +1,5 @@
 # =========================
-# 🧠 1. Tuple (Pair) & Unpacking
+#  1. Tuple (Pair) & Unpacking
 # =========================
 p = (1,2)
 a,b = p
@@ -8,7 +8,7 @@ print(b)
 
 
 # =========================
-# 🧠 2. Nested Tuples (Tuple of Pairs)
+#  2. Nested Tuples (Tuple of Pairs)
 # =========================
 pair = ((1,2) , (3,4) , (5,6))
 #for i in pair:
@@ -16,7 +16,7 @@ pair = ((1,2) , (3,4) , (5,6))
 
 
 # =========================
-# 🧠 3. List Basics (Vector Equivalent)
+#  3. List Basics (Vector Equivalent)
 # =========================
 arr = [5, 10, 15, 20, 25]
 
@@ -27,7 +27,7 @@ arr[2] = 30
 
 
 # =========================
-# 🧠 4. List of Tuples (Array of Pairs)
+#  4. List of Tuples (Array of Pairs)
 # =========================
 arr1 = [(1, 2), (3, 4), (5, 6)]
 
@@ -41,7 +41,7 @@ arr1 = [(1, 2), (3, 4), (5, 6)]
 
 
 # =========================
-# 🧠 5. List Operations 
+#  5. List Operations 
 # =========================
 print(arr1.pop())
 print(arr1)
@@ -59,7 +59,7 @@ arr1.pop(2) # pop removes element at index
 
 
 # =========================
-# 🧠 6. Sorting & Length
+#  6. Sorting & Length
 # =========================
 arr2 = [3, 1, 4, 1, 5, 9]
 arr2.sort()
@@ -70,7 +70,7 @@ arr2.sort()
 
 
 # =========================
-# 🧠 7. Dynamic List Creation
+#  7. Dynamic List Creation
 # =========================
 empty_arr = []
 empty_arr.append(1)
@@ -80,7 +80,7 @@ empty_arr.insert(1,(5,6))
 
 
 # =========================
-# 🧠 8. 2D Array (Matrix Creation & Input)
+#  8. 2D Array (Matrix Creation & Input)
 # =========================
 # rows = int(input("Enter the rows of the array: "))
 # columns = int(input("Enter the columns of the array: "))
@@ -98,7 +98,7 @@ empty_arr.insert(1,(5,6))
 
 
 # =========================
-# 🧠 9. Matrix Traversal & Printing
+#  9. Matrix Traversal & Printing
 # =========================
 # for i in range(rows):
 #     for j in range(columns):
@@ -107,7 +107,7 @@ empty_arr.insert(1,(5,6))
 
 
 # =========================
-# 🧠 10. Reference vs Copy (VERY IMPORTANT)
+#  10. Reference vs Copy (VERY IMPORTANT)
 # =========================
 arr3 = [1, 2, 3, 4, 5]
 
@@ -123,12 +123,30 @@ arr5.append(7)
 
 
 # =========================
-# 🧠 11. Matrix Traversal (Row-wise + Element-wise)
+#  11. Matrix Traversal (Row-wise + Element-wise)
 # =========================
-arr6 = [[1,2,3], [4,5,6], [7,8,9]]
+# arr6 = [[1,2,3], [4,5,6], [7,8,9]]
 
-for i in arr6:
-    print("i =", i)
-    for j in i:
-        print(" j =", j , end=" ")
+# for i in arr6:
+#     print("i =", i)
+#     for j in i:
+#         print(" j =", j , end=" ")
+#     print()
+
+
+
+arr7 = []
+rows = int(input("Enter the number of rows: "))
+columns = int(input("Enter the number of columns: "))
+for i in range(rows):
+    row=[]
+    for j in range(columns):
+        val = int(input(f"Enter element at position {i} {j} :"))
+        row.append(val)
+    arr7.append(row)
+
+
+for i in range(rows):
+    for j in range(columns):
+        print(arr7[i][j] , end=" ")
     print()
