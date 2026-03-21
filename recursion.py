@@ -35,8 +35,17 @@ def sumOfN(num):
     if num < 1:
         return 0
     return num + sumOfN(num-1)
-if __name__ == "__main__":
 
+
+
+def backTrack(i , num):
+    if i< 1:
+        return
+    backTrack(i-1 , num)
+    print(i)
+
+if __name__ == "__main__":
+    sum = 0
     # num = 1
     # printNumbers(num)
     # print("Even numbers: less than 20")
@@ -45,5 +54,7 @@ if __name__ == "__main__":
     print("Factorial:", factorial(num))
     printNto1(num)
     print("Sum of first", num, "natural numbers:", sumOfN(num))
+    print("Backtracking from", num, "to 1:")
+    backTrack(num, num)
 
     
