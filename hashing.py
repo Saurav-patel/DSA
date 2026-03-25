@@ -32,18 +32,47 @@ if __name__ == "__main__":
     # num = int(input("Enter the no. u want to find the count of"))
     # print("Occurance:", hash_arr[num])
     
-    def countFrequency(nums , number):
+    # def countFrequency(nums , number):
         
-        hash_arr1 = [0] * 12
-        for i in range(len(nums)):
-            hash_arr1[nums[i]] += 1
+    #     hash_arr1 = [0] * 12
+    #     for i in range(len(nums)):
+    #         hash_arr1[nums[i]] += 1
         
-        twoDArray = []
-        for i in range(len(hash_arr1)):
-            if hash_arr1[i] > 0:
-                twoDArray.append([i,hash_arr1[i]])
+    #     twoDArray = []
+    #     for i in range(len(hash_arr1)):
+    #         if hash_arr1[i] > 0:
+    #             twoDArray.append([i,hash_arr1[i]])
         
-        print(twoDArray)
-    nums = [1,3,2,4,5,6 , 1,3,3,2]
-    countFrequency(nums ,3)
+    #     print(twoDArray)
+    # nums = [1,3,2,4,5,6 , 1,3,3,2]
+    # countFrequency(nums ,3)
     
+    arr = [12,3,4,3,2,1,2,3,4]
+    hash_arr = [0] * 13
+    for i in arr:
+        hash_arr[i]+=1
+    
+
+    # for i in range(len(hash_arr)):
+    #     if hash_arr[i] > 0:
+    #         print(i , "Appears" , hash_arr[i] , "times")
+    
+    def countOccurance(s,c):
+        hash_arr1 = [0] * 256
+
+        for i in s:
+            hash_arr1[ord(i)]+=1
+        twoDArray = []
+        for i in c:
+            print(i , hash_arr1[ord(i)])
+            twoDArray.append([i,hash_arr1[ord(i)]])
+        print(twoDArray)
+
+        
+    s = input("Enter the string :")
+    num = int(input("Enter the no. of character u want to enter :"))
+    c = []
+    for i in range(num):
+        chr = input("Enter the character :")
+        c.append(chr)
+    countOccurance(s,c)
