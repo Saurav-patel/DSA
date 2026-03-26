@@ -57,22 +57,43 @@ if __name__ == "__main__":
     #     if hash_arr[i] > 0:
     #         print(i , "Appears" , hash_arr[i] , "times")
     
-    def countOccurance(s,c):
-        hash_arr1 = [0] * 256
+    # def countOccurance(s,c):
+    #     hash_arr1 = [0] * 256
 
-        for i in s:
-            hash_arr1[ord(i)]+=1
-        twoDArray = []
-        for i in c:
-            print(i , hash_arr1[ord(i)])
-            twoDArray.append([i,hash_arr1[ord(i)]])
-        print(twoDArray)
+    #     for i in s:
+    #         hash_arr1[ord(i)]+=1
+    #     twoDArray = []
+    #     for i in c:
+    #         print(i , hash_arr1[ord(i)])
+    #         twoDArray.append([i,hash_arr1[ord(i)]])
+    #     print(twoDArray)
 
         
-    s = input("Enter the string :")
-    num = int(input("Enter the no. of character u want to enter :"))
-    c = []
-    for i in range(num):
-        chr = input("Enter the character :")
-        c.append(chr)
-    countOccurance(s,c)
+    # s = input("Enter the string :")
+    # num = int(input("Enter the no. of character u want to enter :"))
+    # c = []
+    # for i in range(num):
+    #     chr = input("Enter the character :")
+    #     c.append(chr)
+    # countOccurance(s,c)
+
+    def countOccurance(nums):
+        hash_arr =  [0] * 7
+        for i in nums:
+            hash_arr[i] += 1
+        maxx = hash_arr[0]
+        element = 0
+        for i in range(len(hash_arr)):
+            if hash_arr[i] > maxx:
+                maxx = hash_arr[i]
+                element = i
+        print(element)
+
+        
+
+
+            
+            
+
+    arr = [4,4,5,5,6]
+    countOccurance(arr)
