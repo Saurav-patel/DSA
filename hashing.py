@@ -90,10 +90,33 @@ if __name__ == "__main__":
         print(element)
 
         
-
+    def leastOccurance(nums):
+        hash_arr = [0] * 10
+        for i in nums:
+            hash_arr[i]+=1
+        minn = float('inf')
+        print(hash_arr)
+        print(minn)
+        element = 0
+        for i in range(len(hash_arr)):
+            if hash_arr[i] > 0 and hash_arr[i] < minn:
+                minn = hash_arr[i]
+                element = i
+        print("element : " , element , "Frequency : ",minn )
 
             
             
+    def elementsNumber(nums):
+        twoDArray = []
+        hash_arr = [0] * 10
+        for i in nums:
+            hash_arr[i] += 1
 
+        for i in range(len(hash_arr)):
+            if hash_arr[i] > 0:
+                twoDArray.append([i , hash_arr[i]])
+        print(twoDArray) 
     arr = [4,4,5,5,6]
     countOccurance(arr)
+    leastOccurance(arr)
+    elementsNumber(arr)
