@@ -11,10 +11,40 @@ def selectionSort(nums):
     print(nums)
 
 
+def bubbleSort(nums):
+    for i in range(len(nums)-1 , 0 , -1):
+        didSwap = 0
+        
+        for j in range(i):
+            if nums[j] > nums[j+1]:
+                nums[j] , nums[j+1]  = nums[j+1] , nums[j]
+                didSwap = 1
+        if didSwap == 0:
+            print("Array is in already sorted")
+            break
+    print(f"bubble sort: {nums}")
+                
+    
+
+
+def insertionSort(nums):
+    for i in range(len(nums)-1):
+        
+        for j in range(i, 1 , -1):
+            print("index of j = ",j , "and vlaue = ",nums[j])
+            if j > 0 and nums[j] < nums[j-1]:
+                nums[j] , nums[j-1] =  nums[j-1] , nums[j]
+        
+    print(f"Insertion Sort : {nums}") 
+
 
 if __name__ == "__main__":
     arr = [7,4,1,5,3]
+    arr2 = [1,2,3,4,5]
     
     
     
-    selectionSort(arr)
+    # selectionSort(arr)
+    # bubbleSort(arr)
+    # bubbleSort(arr2)
+    insertionSort(arr)
