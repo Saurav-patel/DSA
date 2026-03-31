@@ -28,13 +28,15 @@ def bubbleSort(nums):
 
 
 def insertionSort(nums):
-    for i in range(len(nums)-1):
+    for i in range(1 ,len(nums)):
         
-        for j in range(i, 1 , -1):
-            print("index of j = ",j , "and vlaue = ",nums[j])
-            if j > 0 and nums[j] < nums[j-1]:
-                nums[j] , nums[j-1] =  nums[j-1] , nums[j]
         
+        for j in range(i, 0 , -1):
+            
+            if j >= 0 and nums[j] < nums[j-1]:
+                nums[j] , nums[j-1] = nums[j-1] , nums[j]
+            else:
+                break
     print(f"Insertion Sort : {nums}") 
 
 
