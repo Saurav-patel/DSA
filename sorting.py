@@ -124,18 +124,34 @@ def quickSort(nums,low,high):
         quickSort(nums,part+1 , high) 
 
 
+def sort(nums):
+    didswap = 0
+    for i in range(len(nums)-1):
+        for j in range(i+1 , len(nums)):
+            if nums[i] > nums[j]:
+                nums[i] , nums[j] = nums[j] , nums[i]
+                didswap = 1
+    if didswap == 0:
+        return -1
+    else:
+        return nums[-2]
+    
 
+    
 if __name__ == "__main__":
     arr = [7,4,1,5,3]
     arr2 = [1,2,3,4,5]
+    
+    # print(arr[-1])
+    print(sort(arr))
     # high = len(arr)-1
     # sn = Solution()
     # sn.mergeSort(arr , 0 , high)
     # print(arr)
     # recursiveBubbleSort(arr , len(arr))
     # recursiveSelectionSort(arr , 0)
-    quickSort(arr,0, len(arr)-1)
-    print(arr)
+    # quickSort(arr,0, len(arr)-1)
+    # print(arr)
 
 
 
