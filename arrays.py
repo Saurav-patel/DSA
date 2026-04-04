@@ -68,8 +68,25 @@ def shiftByK(nums , k):
     nums[-k] = first
     return nums
 
+def zeroesToEnd(nums):
+    count = 0
+    for i in range(len(nums)):
+        if nums[i] != 0:
+            nums[count] = nums[i]
+            count += 1
+    while count < len(nums):
+        nums[count] = 0
+        count += 1
+    return nums
+def fun(nums):
+    high =  len(nums) - 1
+    for i in range(len(nums)):
+        if nums[i] == 0:
+            nums[i], nums[high] = nums[high], nums[i]
+            high -= 1
+    return nums
 if __name__ == "__main__":
-    arr = [7,4,1,5,3]
+    arr = [7,4,1,0,0,5,3]
     arr2 = [1,1,2,2,3,4,5]
     # print(secondLargest(arr))
     # print(secondSmallest(arr))
@@ -79,4 +96,6 @@ if __name__ == "__main__":
     # print(duplicate(arr2))
     # # print(removeDuplicate(arr2))
     # print(removeDuplicate2(arr2))
-    print(shiftByK(arr, 3))
+    # print(shiftByK(arr, 3))
+    print(zeroesToEnd(arr))
+    print(fun(arr))
