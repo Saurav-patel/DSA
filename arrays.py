@@ -149,9 +149,43 @@ def union2(nums1,nums2):
         temp.add(nums2[i])
     return list(temp)
 
+def intersection(nums1 , nums2):
+    result = []
+    i , j = 0 ,  0
+    for i in range(len(nums1)):
+        for j in range(len(nums2)):
+            if nums1[i] == nums2[j]:
+                if not result or result[-1] != nums1[i]:
+                    result.append(nums1[i])
+    return result
+
+
+def findMissing(nums):
+    n = len(nums) + 1
+    total_sum = n * (n + 1) // 2
+    print(f"Total sum of first {n} natural numbers: {total_sum}")
+    arr_sum = 0
+    for i in range(len(nums)):
+        arr_sum += nums[i]
+    return total_sum - arr_sum
+
+def findMaxConsecutiveOnes(nums):
+    count = 0
+    max_count = 0
+    for i in range(len(nums)):
+        if nums[i] == 1:
+            count += 1
+            if count > max_count:
+                max_count = count
+        else:
+            count = 0
+    return max_count
+
+
 if __name__ == "__main__":
-    arr = [7,4,1,0,0,5,3]
+    arr = [7,4,1,1,10,0,5,3,3,3]
     arr2 = [1,1,2,2,3,4,5]
+    arr3 = [1,2,4,5]
     # print(secondLargest(arr))
     # print(secondSmallest(arr))
     # print(checkSorted(arr))
@@ -166,5 +200,8 @@ if __name__ == "__main__":
     # print(fun(arr))
     # print(f"sum of two numbers equal to 7: {targetSum(arr, 7)}")
     # print(f"Union of arr and arr2: {union(arr, arr2)}")
-    print(f"Optimal Union of arr and arr2: {optimalUnionOfSortedArrays(arr, arr2)}")
-    print(f"Union of arr and arr2 (using set): {union2(arr, arr2)}")
+    # print(f"Optimal Union of arr and arr2: {optimalUnionOfSortedArrays(arr, arr2)}")
+    # # print(f"Union of arr and arr2 (using set): {union2(arr, arr2)}")
+    # print(f"Intersection of arr and arr2: {intersection(arr, arr2)}")
+    # print(f"Missing number in arr: {findMissing(arr3)}")
+    print(f"Maximum consecutive ones in arr: {findMaxConsecutiveOnes(arr)}")
