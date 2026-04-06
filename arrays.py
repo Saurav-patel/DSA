@@ -85,6 +85,70 @@ def fun(nums):
             nums[i], nums[high] = nums[high], nums[i]
             high -= 1
     return nums
+
+
+def targetSum(nums , target):
+    sum = 0
+    temp = []
+    for i in range(len(nums)):
+        for j in range(len(nums)-1,i , -1):
+            sum = nums[i] + nums[j]
+            if sum == target:
+                temp.append((nums[i], nums[j]))
+    return temp
+
+def union(nums1 , nums2):
+    for i in range(len(nums1)):
+        for j in range(len(nums1)-1,i,-1):
+            if nums1[i] > nums1[j]:
+                nums1[i], nums1[j] = nums1[j], nums1[i]
+    for i in range(len(nums2)):
+        for j in range(len(nums2)-1,i,-1):
+            if nums2[i] > nums2[j]:
+                nums2[i], nums2[j] = nums2[j], nums2[i]
+
+    for i in range(len(nums2)):
+        if nums2[i] not in nums1:
+            nums1.append(nums2[i])
+    return nums1
+
+def optimalUnion(nums1 , nums2):
+    temp = []
+    i , j = 0 , 0
+    while i<len(nums1) and j < len(nums2):
+        if nums1[i] < nums2[j]:
+            if not temp or temp[-1] != nums1[i]:
+
+                temp.append(nums1[i])
+            i+=1
+        elif nums2[j] < nums1[i]:
+            if not temp or temp[-1] != nums2[j]:
+                temp.append(nums2[j])
+            j+=1
+        
+        else:
+            if not temp or temp[-1] != nums1[i]:
+                temp.append(nums1[i])
+            i+=1
+            j+=1
+
+    while i < len(nums1) :
+        if not temp or temp[-1] != nums1[i]:
+            temp.append(nums1[i])
+        i+=1
+    while j < len(nums2) :
+        if not temp or temp[-1] != nums2[j]:
+            temp.append(nums2[j])
+        j+=1
+    
+    return temp
+
+def union2(nums1,nums2):
+    temp = set(nums1)
+    for i in range(len(nums2)):
+        temp.add(nums2[i])
+    return list(temp)
+
 if __name__ == "__main__":
     arr = [7,4,1,0,0,5,3]
     arr2 = [1,1,2,2,3,4,5]
@@ -97,5 +161,10 @@ if __name__ == "__main__":
     # # print(removeDuplicate(arr2))
     # print(removeDuplicate2(arr2))
     # print(shiftByK(arr, 3))
-    print(zeroesToEnd(arr))
-    print(fun(arr))
+    # print(zeroesToEnd(arr))
+
+    # print(fun(arr))
+    # print(f"sum of two numbers equal to 7: {targetSum(arr, 7)}")
+    # print(f"Union of arr and arr2: {union(arr, arr2)}")
+    print(f"Optimal Union of arr and arr2: {optimalUnion(arr, arr2)}")
+    print(f"Union of arr and arr2 (using set): {union2(arr, arr2)}")
