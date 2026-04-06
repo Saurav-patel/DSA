@@ -112,7 +112,7 @@ def union(nums1 , nums2):
             nums1.append(nums2[i])
     return nums1
 
-def optimalUnion(nums1 , nums2):
+def optimalUnionOfSortedArrays(nums1 , nums2):
     temp = []
     i , j = 0 , 0
     while i<len(nums1) and j < len(nums2):
@@ -166,5 +166,5 @@ if __name__ == "__main__":
     # print(fun(arr))
     # print(f"sum of two numbers equal to 7: {targetSum(arr, 7)}")
     # print(f"Union of arr and arr2: {union(arr, arr2)}")
-    print(f"Optimal Union of arr and arr2: {optimalUnion(arr, arr2)}")
+    print(f"Optimal Union of arr and arr2: {optimalUnionOfSortedArrays(arr, arr2)}")
     print(f"Union of arr and arr2 (using set): {union2(arr, arr2)}")
