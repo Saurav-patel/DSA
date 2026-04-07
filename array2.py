@@ -1,0 +1,56 @@
+
+def findNumApperanceOnce(nums):
+    # optimal approach: Using XOR operator
+    xor_result = 0
+    # xor_result = 0
+    # for i in range(len(nums)):
+    #     xor_result^= nums[i]
+    # return xor_result
+
+    # # Approach 2 better: Using Hash Map
+    # hash_mqp = [0] * 10
+    # for i in range(len(nums)):
+    #     hash_mqp[nums[i]]+=1
+    # for i in range(len(hash_mqp)):
+    #     if hash_mqp[i] == 1:
+    #         return i
+
+
+    # brute force approach
+    # for i in range(len(nums)):
+    #     num = nums[i]
+    #     count = 0
+    #     for j in range(i+1,len(nums)):
+    #         if nums[j] == num:
+    #             count +=1
+    #     if count == 1:
+    #         return num
+
+def targetSumSubArray(nums , target):
+    max_length = 0
+    for i in range(len(nums)):
+        sum = 0
+        
+        temp = []
+        for j in range(i,len(nums)):
+            
+            sum += nums[j]
+            print("sum =", sum)
+            temp.append(nums[j])
+            if sum == target:
+                max_length = max(max_length , j-i+1)
+                
+    return max_length
+    
+def targetSumSubArrayBetter(nums , target):
+    
+    hash_map = [0] * 20
+    for i in range(len(nums)):
+        hash_map[nums[i]]+=1
+
+
+
+if __name__ == "__main__":
+    arr = [1,1,3,4,5,5,3]
+    print(targetSumSubArray(arr, 5))
+    # print(findNumApperanceOnce(arr))

@@ -181,31 +181,6 @@ def findMaxConsecutiveOnes(nums):
             count = 0
     return max_count
 
-def findNumApperanceOnce(nums):
-    # optimal solution using XOR operator
-    # xor_result = 0
-    # for i in range(len(nums)):
-    #     xor_result ^= nums[i]
-    # return xor_result
-
-    # better solution using hash map
-    # hash_map = [0] * 10
-    # for i in range(len(nums)):
-    #     hash_map[nums[i]]+=1
-    # for i in range(len(hash_map)):
-    #     if hash_map[i] == 1:
-    #         return i
-        
-    # brute force solution
-    # for i in range(len(nums)):
-    #     num = nums[i]
-    #     count = 0
-    #     for j in range(len(nums)):
-    #         if nums[j] == num:
-    #             count +=1
-    #     if count == 1:
-    #         return num
-    # return -1
 
 
 if __name__ == "__main__":
@@ -231,4 +206,3 @@ if __name__ == "__main__":
     # print(f"Intersection of arr and arr2: {intersection(arr, arr2)}")
     # # print(f"Missing number in arr: {findMissing(arr3)}")
     # print(f"Maximum consecutive ones in arr: {findMaxConsecutiveOnes(arr)}")
-    print(f"Number that appears only once in arr: {findNumApperanceOnce(arr2)}")
