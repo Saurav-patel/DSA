@@ -37,10 +37,23 @@ def findUnique(nums):
             nums[low] = nums[high]
     return nums[:low]            
 
-
+def squareOfSortedArray(nums):
+    low = 0
+    high = len(nums) - 1
+    temp = [0] * len(nums)
+    while low <= high:
+        if nums[low]**2 > nums[high]**2:
+            temp[high-low] = nums[low]**2
+            low += 1
+        else:
+            temp[high-low] = nums[high]**2
+            high -= 1
+    return temp
 
 if __name__ == "__main__":
     arr = [1,1,3,4,5,5,3]
+    arr2 = [-4,-1,0,3,10]
+    print(squareOfSortedArray(arr2))
     # print(targetSumSubArray(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
