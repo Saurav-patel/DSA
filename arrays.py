@@ -61,6 +61,8 @@ def removeDuplicate2(nums):
             temp.append(nums[i])
     return temp
 
+
+
 def shiftByK(nums , k):
     first = nums[k]
     for i in range(k,len(nums)):
@@ -127,6 +129,7 @@ def optimalUnionOfSortedArrays(nums1 , nums2):
             j+=1
         
         else:
+            
             if not temp or temp[-1] != nums1[i]:
                 temp.append(nums1[i])
             i+=1
