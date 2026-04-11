@@ -13,7 +13,7 @@ def findNumApperanceOnce(nums):
     #     hash_mqp[nums[i]]+=1
     # for i in range(len(hash_mqp)):
     #     if hash_mqp[i] == 1:
-    #         return i
+    
 
     
 
