@@ -50,11 +50,29 @@ def squareOfSortedArray(nums):
             high -= 1
     return temp
 
+def targetSumTriplets(nums,target):
+    low = 0                                     # O(n^2) time complexity 
+                                                #keep low fixed and move mid and high pointer to find the target sum 
+    for low in range(len(nums)-2):
+        
+        high = len(nums) - 1
+        mid = low+1 
+        while mid < high:
+            if nums[low] + nums[mid] + nums[high] == target:
+                return (nums[low], nums[mid], nums[high])
+            elif nums[low] + nums[mid] + nums[high] < target:
+                mid += 1
+                
+            else:
+                high -= 1
+            
+    return "No such triplet found"
 if __name__ == "__main__":
-    arr = [1,1,3,4,5,5,3]
+    arr = [2,1,3,4,5,5,3]
     arr2 = [-4,-1,0,3,10]
-    print(squareOfSortedArray(arr2))
-    # print(targetSumSubArray(arr, 5))
+    # print(squareOfSortedArray(arr2))
+    print(targetSumTriplets(arr, 9))
+    # print(targetSumTriplets(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
     # d = {}
@@ -65,4 +83,4 @@ if __name__ == "__main__":
     #         print(f"Pair found at index from {d[target-j]} to {i}")
     #     d[j] = i
     # print(d)
-    print(findUnique(arr))
+    # print(findUnique(arr))
