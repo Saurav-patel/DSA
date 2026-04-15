@@ -92,21 +92,42 @@ def tripletSumClosest(nums , target):
             sum = nums[low]+nums[left]+nums[right]
             if abs(target - sum) < abs(target - close):
                 close = sum
-                temp = ([nums[low], nums[left], nums[right]])
+                # temp = ([nums[low], nums[left], nums[right]])
             if sum < target:
                 left += 1
             elif sum > target:
                 right -= 1
             else:
-                return temp
+                return sum
+    return close
     # return temp
+
+def tripletSmallerSum(nums , target):
+        # smaller = float("inf")
+        temp = []
+        for low in range(len(nums)-2):
+            if low> 0 and nums[low] == nums[low-1]:
+                continue
+            left,right = low+1,len(nums)-1
+            while left < right:
+                sum  = nums[low] + nums[left] + nums[right]
+                if sum < target:
+                    temp.append([nums[low], nums[left], nums[right]])
+                left += 1
+                right -= 1
+                while left < right and nums[left] == nums[left-1]:
+                    left += 1
+                while left < right and nums[right] == nums[right+1]:
+                    right -= 1
+        return temp
 
 if __name__ == "__main__":
     arr = [2,1,3,4,5,5,3]
     arr2 = [-4,-1,0,3,10]
     # print(squareOfSortedArray(arr2))
     print(targetSumTriplets(arr, 13))
-    print(tripletSumClosest(arr,13))
+    print(tripletSumClosest(arr,14))
+    print(tripletSmallerSum(arr,12))
     # print(targetSumTriplets(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
