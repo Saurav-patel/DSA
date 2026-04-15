@@ -53,25 +53,60 @@ def squareOfSortedArray(nums):
 def targetSumTriplets(nums,target):
     low = 0                                     # O(n^2) time complexity 
                                                 #keep low fixed and move mid and high pointer to find the target sum 
+    temp = [] 
     for low in range(len(nums)-2):
         
         high = len(nums) - 1
         mid = low+1 
+        if low > 0 and nums[low] == nums[low-1]: # skip duplicates
+            continue
         while mid < high:
             if nums[low] + nums[mid] + nums[high] == target:
-                return (nums[low], nums[mid], nums[high])
+                temp.append([nums[low], nums[mid], nums[high]])
+                mid += 1
+                high -= 1       
+                # return (nums[low], nums[mid], nums[high])
+                while mid < high and nums[mid] == nums[mid-1]: # skip duplicates
+                    mid += 1
+                while mid < high and nums[high] == nums[high+1]: # skip duplicates
+                    high -= 1
             elif nums[low] + nums[mid] + nums[high] < target:
                 mid += 1
                 
             else:
                 high -= 1
             
-    return "No such triplet found"
+    return temp
+
+
+def tripletSumClosest(nums , target):
+    close = float("inf")
+    temp = []
+    for low in range(len(nums)-2):
+        if low > 0 and nums[low] == nums[low-1]:
+            continue
+    
+    
+        left,right = low+1,len(nums)-1
+        while left < right:
+            sum = nums[low]+nums[left]+nums[right]
+            if abs(target - sum) < abs(target - close):
+                close = sum
+                temp = ([nums[low], nums[left], nums[right]])
+            if sum < target:
+                left += 1
+            elif sum > target:
+                right -= 1
+            else:
+                return temp
+    # return temp
+
 if __name__ == "__main__":
     arr = [2,1,3,4,5,5,3]
     arr2 = [-4,-1,0,3,10]
     # print(squareOfSortedArray(arr2))
-    print(targetSumTriplets(arr, 9))
+    print(targetSumTriplets(arr, 13))
+    print(tripletSumClosest(arr,13))
     # print(targetSumTriplets(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
