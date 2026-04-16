@@ -119,18 +119,38 @@ def tripletSmallerSum(nums , target):
                     left += 1
                 while left < right and nums[right] == nums[right+1]:
                     right -= 1
+                else:
+                    right -= 1
         return temp
 
+
+def dutchNationalFlag(nums):
+    low  = 0
+    left = 0
+    right = len(nums)-1
+    while left < right:
+        if nums[left] == 0:
+            nums[low],nums[left] = nums[left],nums[low]
+            low += 1
+            left += 1
+        elif nums[left] == 1:
+            left += 1
+        else:
+            nums[right],nums[left] = nums[left],nums[right]
+            right -= 1
+    return nums
 if __name__ == "__main__":
     arr = [2,1,3,4,5,5,3]
     arr2 = [-4,-1,0,3,10]
+    arr3 = [1,2,0,0,2,1]
     # print(squareOfSortedArray(arr2))
-    print(targetSumTriplets(arr, 13))
-    print(tripletSumClosest(arr,14))
-    print(tripletSmallerSum(arr,12))
+    # print(targetSumTriplets(arr, 13))
+    # print(tripletSumClosest(arr,14))
+    # print(tripletSmallerSum(arr,12))
     # print(targetSumTriplets(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
+    print(dutchNationalFlag(arr3))
     # d = {}
     # target = 5
     # for i,j in enumerate(arr):
