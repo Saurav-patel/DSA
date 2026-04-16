@@ -128,7 +128,7 @@ def dutchNationalFlag(nums):
     low  = 0
     left = 0
     right = len(nums)-1
-    while left < right:
+    while left <= right:
         if nums[left] == 0:
             nums[low],nums[left] = nums[left],nums[low]
             low += 1
@@ -139,11 +139,28 @@ def dutchNationalFlag(nums):
             nums[right],nums[left] = nums[left],nums[right]
             right -= 1
     return nums
+
+def maxWaterContainer(nums):
+    left = 0
+    right = len(nums) -1
+    max_area = 0
+    while left < right:
+        width = right - left
+        height = min(nums[left], nums[right])
+        area = width * height
+        max_area = max(max_area, area)
+        if nums[left] < nums[right]:
+            left += 1
+        else:
+            right -= 1
+    return max_area
+
 if __name__ == "__main__":
     arr = [2,1,3,4,5,5,3]
-    arr2 = [-4,-1,0,3,10]
+    arr2 = [4,3,2,1,4]
     arr3 = [1,2,0,0,2,1]
     # print(squareOfSortedArray(arr2))
+    print(maxWaterContainer(arr2))
     # print(targetSumTriplets(arr, 13))
     # print(tripletSumClosest(arr,14))
     # print(tripletSmallerSum(arr,12))
