@@ -39,6 +39,18 @@ def minSubArraywithK(nums,target):
 
     return min_length , nums[start:end+1]
 
+def allPossibleSubArrays(nums , target):
+    subArray = []
+    low , high = 0 , 0
+    summ = 0
+    for high in range(len(nums)):
+        summ+= nums[high]
+        while summ >= target and low < high:
+            subArray.append(nums[low:high+1])
+            summ -= nums[low]
+            low += 1
+    return subArray
+
 def kadane(nums ):
     max_sum = nums[0]
     current_sum = nums[0]
@@ -85,6 +97,7 @@ if __name__ == "__main__":
     arr = [2,3,4,5,6,8]
     print(f"maximum subarray length with sum k = {maxSubArraywithK(arr , 23)}")
     print(f"minimum subarray length with sum k = {minSubArraywithK(arr , 22)}")
+    print(f"all possible subarrays with sum greater than or equal to k = {allPossibleSubArrays(arr , 23)}")
     print(f"maximum subarray sum = {kadane(arr )}")
     print(f"static window = {staticWindow(arr , 3)}")
     print(f"static window 2 = {staticWindow2(arr , 3)}")
