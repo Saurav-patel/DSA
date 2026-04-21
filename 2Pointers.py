@@ -155,19 +155,34 @@ def maxWaterContainer(nums):
             right -= 1
     return max_area
 
+def longestSubstringWithoutRepeatingCharacters(s):
+    left = 0
+    max_length = 0
+    for right in range(len(s)):
+        if right > 0 and s[right] != s[left]:
+            max_length+=1
+        else:            
+            left = right
+            max_length = 0
+    return max_length, s[left:right]
+
+
+
 if __name__ == "__main__":
     arr = [2,1,3,4,5,5,3]
     arr2 = [4,3,2,1,4]
     arr3 = [1,2,0,0,2,1]
+    string  = "abcabcbb"
+    print(longestSubstringWithoutRepeatingCharacters(string))
     # print(squareOfSortedArray(arr2))
-    print(maxWaterContainer(arr2))
+    # print(maxWaterContainer(arr2))
     # print(targetSumTriplets(arr, 13))
     # print(tripletSumClosest(arr,14))
     # print(tripletSmallerSum(arr,12))
     # print(targetSumTriplets(arr, 5))
     # # print(findNumApperanceOnce(arr))
     # print(targetSumSubArrayBetter(arr, 5))
-    print(dutchNationalFlag(arr3))
+    # print(dutchNationalFlag(arr3))
     # d = {}
     # target = 5
     # for i,j in enumerate(arr):
