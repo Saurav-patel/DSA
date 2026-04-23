@@ -39,7 +39,7 @@ def non_repeating_characters(s):
     for ch in s:
         if mp[ch] == 1:
             print(f"{ch} is a non-repeating character")
-    return None
+    return -1
 
 def sum_with_k(arr , k):
     mp = {}
@@ -50,6 +50,24 @@ def sum_with_k(arr , k):
         mp[nums] = 1
     return None
 
+def ransome_note(magzine , note):
+    mp = {}
+    for ch in (note):
+        
+        mp[ch] = mp.get(ch, 0) + 1
+        print(mp)
+    for ch in magzine:
+        if ch in mp:
+            print("word found", ch)
+            mp[ch] -=1
+            
+            
+    
+        
+        
+    return all(value <= 0 for value in mp.values())
+
+
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 1]
     # print(contains_duplicate(arr))
@@ -59,3 +77,4 @@ if __name__ == "__main__":
     # print(first_non_repeating_char(s))
     # print(non_repeating_characters(s))
     print(sum_with_k(arr, 6))
+    print(ransome_note("abc", "a"))
