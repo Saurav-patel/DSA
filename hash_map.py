@@ -67,6 +67,40 @@ def ransome_note(magzine , note):
         
     return all(value <= 0 for value in mp.values())
 
+def maxWordFormation(words,target):
+    mp_target = {}
+    mp_words = {}
+    for ch in target:
+        mp_target[ch] = mp_target.get(ch, 0) + 1
+    for ch in words:
+        mp_words[ch] = mp_words.get(ch, 0) + 1
+    count = float('inf')
+    for ch in mp_target:
+        if ch in mp_words:
+            
+            count = min(count  ,  mp_words[ch]// mp_target[ch])
+        else:
+            return 0
+            
+    return count
+
+def longestPalindrome(str):
+    length = 0
+    mp = {}
+    for ch in str:
+        mp[ch] = mp.get(ch,0)+1
+    
+    for ch in mp:
+        if mp[ch] % 2 == 0 :
+            length+=mp[ch]
+            
+        else:
+                length+=mp[ch]-1
+                is_odd = True
+            
+        
+    return length+1 if is_odd else length
+
 
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 1]
@@ -78,3 +112,5 @@ if __name__ == "__main__":
     # print(non_repeating_characters(s))
     print(sum_with_k(arr, 6))
     print(ransome_note("abc", "a"))
+    print(maxWordFormation("hhellod world", "hold"))
+    print(longestPalindrome("aabbbbccddd"))
