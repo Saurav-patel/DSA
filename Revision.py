@@ -90,20 +90,28 @@ def longestPalindrome(str):
 
 
 def minWindowSubstring(s,t):
-    mp = [0] * 128  # Assuming ASCII characters
+    def check(have,required):
+        for i in range(128):
+            if have[i] < required[i]:
+                return False
+        return True
     low = 0
-    s_mp = [0] * 128
-    min_length = float("inf")
+    start = 0
+    res = float("inf")
+    required = [0]*128
+    have = [0]*128
     for ch in t:
-        mp[ord(ch)] += 1
+        required[ord(ch)] += 1
     for high in range(len(s)):
-        s_mp[ord(s[high])] += 1
-        while all(s_mp[i] >= mp[i] for i in range(128)):
-            min_length = min(min_length, high - low + 1)
-            s_mp[ord(s[low])] -= 1
+        have[ord(s[high])] +=1
+        while check(have,required):
+            curr_len = high-low+1
+            if curr_len < res:
+                res = curr_len
+                start = low
+            have[ord(s[low])] -= 1
             low += 1
-    return min_length, s[low-1:low+min_length] if min_length != float("inf") else 0
-        
+    return s[start:start+res] if res != float("inf") else ""
         
 
 if __name__ == "__main__":
